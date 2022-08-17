@@ -1,0 +1,48 @@
+create database tcc_Quimera
+use tcc_Quimera
+
+create table usuario
+(
+	user_status int not null,
+	data_insert varchar(10) not null,
+	data_update varchar(10) not null,
+	email varchar(255) unique not null,
+	senha varchar(10) not null,
+	nome_user varchar(255) not null,
+	imgpatch varchar(255) not null,
+	id_user int primary key identity
+)
+
+create table repositorio
+(
+	rep_status int not null,
+	data_insert varchar(10) not null,
+	data_update varchar(10) not null,
+	nome_rep varchar(100) not null,
+	rep_url varchar(255) not null,
+	rep_id int primary key identity
+)
+
+create table arquivo
+(
+	arq_status int not null,
+	data_insert varchar(10) not null,
+	data_update varchar(10) not null,
+	filepatch varchar(255) not null,
+	file_hash varchar(255) unique not null,
+	cod_usuario int,
+	foreign key (cod_usuario) references usuario(id_user),
+	arq_id int primary key identity
+)
+
+create table arq_rep
+(
+	cod_arq int,
+	cod_rep int,
+	foreign key (cod_arq) references arquivo(arq_id),
+	foreign key (cod_rep) references repositorio(rep_id)
+)
+
+insert into usuario values(1,'05/17/2022','teste@gmail','123','teste','vgdfyisaob')
+
+select * from usuario where user_status = 1
