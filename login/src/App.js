@@ -45,7 +45,11 @@ function App() {
             </div>
 
             <div className="text-center">
+<<<<<<< HEAD
               <span className="txt1">Não possui conta?</span>
+=======
+              <span className="txt1">Não possui conta? </span>
+>>>>>>> 83fafca7d4ee78bda7dfa6ca9ba1115696fa5980
               <a className="txt2" href ="Cadastrar">
                 Criar conta
               </a>
